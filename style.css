@@ -1,7 +1,10 @@
 *{
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 main{
+    margin-top: 30px;
     display: flex;
     justify-content: space-around;
     flex-direction: column;
@@ -50,21 +53,26 @@ button{
 }
 
 .display{
+    height: 10vh;
     border-radius: 3%;
-    display: flex;
-    flex-direction: column;
+    position: relative;
     margin-bottom: 15px;
-    justify-content: flex-end;
     background-color: royalblue;
     color: white;
-
+    padding-right: 20px;
+    padding-left: 20px;
 }
 
-.numbers, .answer{
+.number1, .number2, .op{
     margin-left: auto;
     margin-right: 0;
-    font-size: 1.5rem;
-    padding-right: 5px;
+    font-size: 1.8rem;
+}
+
+.answer{
+    margin-right: auto;
+    margin-left: 0;
+    font-size: 1.8rem;
 }
 
 .numbers{
