@@ -1,7 +1,7 @@
 let numbers = document.querySelectorAll('[data-number]')
 let operations = document.querySelectorAll('[data-operation]')
 let del = document.querySelector('[data-del]')
-let clear = document.querySelector('[data-clear-all]')
+
 let equal = document.querySelector('[data-equal]')
 let num1 = document.querySelector('.number1')
 let num2 = document.querySelector('.number2')
@@ -22,8 +22,12 @@ function multiply(n1, n2){
 }
 
 function divide(n1, n2){
-    if(n2 == 0){return 'Error'}
-    return parseFloat(n1) / parseFloat(n2)
+    if(n2 != 0){
+        return parseFloat(n1) / parseFloat(n2)
+    }else{
+        alert("You can't divide by 0")
+    }
+
 }
 
 function operate(operator, first, second){
@@ -31,12 +35,12 @@ function operate(operator, first, second){
         case '+': return add(first, second); break;
         case '-': return substract(first, second); break;
         case '/': return divide(first, second); break;
-        case 'X': return multiply(first, second); break;
+        case '*': return multiply(first, second); break;
     }
 }
 
 function roundToFive(num) {
-    return +(Math.round(num + "e+5")  + "e-5");
+    return + (Math.round(num + "e+5")  + "e-5");
 }
 
 function updateDisplay(number){
@@ -77,14 +81,9 @@ operations.forEach(operation => {
     })
 })
 
-clear.addEventListener('click', () => {
-    num1.textContent = ''
-    num2.textContent = ''
-    op.textContent = ''
-    answ.textContent = ''
-})
 
-del.addEventListener('click', () => {
+
+function deleteNumber(){
     if(answ.textContent){
         answ.textContent = answ.textContent.slice(0, -1)
     }
@@ -97,11 +96,9 @@ del.addEventListener('click', () => {
     else if(num2.textContent){
         num2.textContent = num2.textContent.slice(0, -1)
     }
-   
-})
+}
 
-equal.addEventListener('click', () => {
-    console.log(num1.textContent, op.textContent, num2.textContent);
+function calculate(){
     if(op.textContent != '' &&  num1.textContent != '' && num2.textContent != ''){
         let result = roundToFive(operate(op.textContent, num1.textContent, num2.textContent))
         answ.textContent = result
@@ -109,5 +106,29 @@ equal.addEventListener('click', () => {
         num2.textContent = ''
         op.textContent = ''
     }
+}
 
+
+del.addEventListener('click', deleteNumber)
+equal.addEventListener('click', calculate)
+
+
+//Keyboard
+window.addEventListener('keydown', (e) => {
+    if(e.key.match(/[0-9]/)){
+        updateDisplay(e.key)
+    }
+
+    if(e.key == '+' || e.key == '*' || e.key == '/' || e.key == '-'){
+        updateOperation(e.key)
+    }
+
+    switch(e.key){
+        case 'Backspace': deleteNumber(); break; 
+        case '=' : calculate(); break;
+        case 'Enter' : calculate(); break
+    
+    }
+    e.preventDefault()
+  
 })

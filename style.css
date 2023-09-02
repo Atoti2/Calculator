@@ -12,7 +12,6 @@ main{
 }
 .container{
     background-color: darkblue;
-
     padding: 5px;
 }
 
@@ -53,8 +52,8 @@ button{
 }
 
 .display{
+    overflow: hidden;
     height: 10vh;
-    position: relative;
     margin-bottom: 15px;
     background-color: royalblue;
     color: white;
