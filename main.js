@@ -84,6 +84,22 @@ clear.addEventListener('click', () => {
     answ.textContent = ''
 })
 
+del.addEventListener('click', () => {
+    if(answ.textContent){
+        answ.textContent = answ.textContent.slice(0, -1)
+    }
+    if(op.textContent && !num2.textContent){
+        op.textContent = op.textContent.slice(0, -1)
+    }
+    else if(!num2.textContent){
+        num1.textContent = num1.textContent.slice(0, -1)
+    }
+    else if(num2.textContent){
+        num2.textContent = num2.textContent.slice(0, -1)
+    }
+   
+})
+
 equal.addEventListener('click', () => {
     console.log(num1.textContent, op.textContent, num2.textContent);
     if(op.textContent != '' &&  num1.textContent != '' && num2.textContent != ''){

@@ -12,8 +12,8 @@ main{
 }
 .container{
     background-color: darkblue;
-    border-radius: 3%;
-    
+
+    padding: 5px;
 }
 
 .buttons{
@@ -54,7 +54,6 @@ button{
 
 .display{
     height: 10vh;
-    border-radius: 3%;
     position: relative;
     margin-bottom: 15px;
     background-color: royalblue;
