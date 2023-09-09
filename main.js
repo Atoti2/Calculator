@@ -45,10 +45,15 @@ function roundToFive(num) {
 
 function updateDisplay(number){
     if(op.textContent == ''){
-        num1.textContent += number
+        if(!(num1.textContent.length > 12)){
+            num1.textContent += number 
+        }
+        
     }
     else{
-        num2.textContent += number
+        if(!(num2.textContent.length > 12)){
+            num2.textContent += number 
+        }
     }
 }
 

@@ -18,20 +18,18 @@ main{
 .buttons{
     padding: 3px;
     display: grid;
-    grid-template-rows: auto;
     grid-template-columns: repeat(4, 1fr);
     align-items: center;
     justify-content: center;
     width: 100%;
     gap: 5px;
-
 }
 
 button{
     font-size: 2rem;
     outline: none;
-    width: 100px;
-    height: 100px;
+    width: 70px;
+    height: 70px;
     border-radius: 10px;
     cursor: pointer;
     border: none;
@@ -52,8 +50,9 @@ button{
 }
 
 .display{
+    min-width: 100%;
     overflow: hidden;
-    height: 10vh;
+    min-height: 10vh;
     margin-bottom: 15px;
     background-color: royalblue;
     color: white;
